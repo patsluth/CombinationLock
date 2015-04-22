@@ -1,0 +1,78 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXFileReference section */
+		2E0CC25B1AD8487400118802 /* layout */ = {isa = PBXFileReference; lastKnownFileType = folder; path = layout; sourceTree = "<group>"; };
+		2E0CC25C1AD848EF00118802 /* Makefile */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
+		2E0CC25D1AD84A0F00118802 /* SWCombinationLock.xm */ = {isa = PBXFileReference; lastKnownFileType = text; path = SWCombinationLock.xm; sourceTree = "<group>"; };
+		2E7897681ADCB1FB0032F5D3 /* public */ = {isa = PBXFileReference; lastKnownFileType = folder; path = public; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		2E0CC2541AD8483400118802 = {
+			isa = PBXGroup;
+			children = (
+				2E0CC25B1AD8487400118802 /* layout */,
+				2E7897681ADCB1FB0032F5D3 /* public */,
+				2E0CC25C1AD848EF00118802 /* Makefile */,
+				2E0CC25D1AD84A0F00118802 /* SWCombinationLock.xm */,
+			);
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXProject section */
+		2E0CC2551AD8483400118802 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0630;
+			};
+			buildConfigurationList = 2E0CC2581AD8483400118802 /* Build configuration list for PBXProject "combinationlock" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 2E0CC2541AD8483400118802;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+			);
+		};
+/* End PBXProject section */
+
+/* Begin XCBuildConfiguration section */
+		2E0CC2591AD8483400118802 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+			};
+			name = Debug;
+		};
+		2E0CC25A1AD8483400118802 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2E0CC2581AD8483400118802 /* Build configuration list for PBXProject "combinationlock" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2E0CC2591AD8483400118802 /* Debug */,
+				2E0CC25A1AD8483400118802 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 2E0CC2551AD8483400118802 /* Project object */;
+}

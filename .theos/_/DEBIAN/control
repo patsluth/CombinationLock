@@ -1,0 +1,10 @@
+Package: com.patsluth.swcombinationlock
+Name: Combination Lock
+Depends: mobilesubstrate
+Architecture: iphoneos-arm
+Description: An awesome MobileSubstrate tweak!
+Maintainer: Pat Sluth
+Author: Pat Sluth
+Section: Tweaks
+Version: 1.0-236
+Installed-Size: 188
