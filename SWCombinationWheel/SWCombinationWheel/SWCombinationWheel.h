@@ -53,6 +53,18 @@
 
 @optional
 
+/**
+ *  Return custom background view
+ *
+ *  @param swCombinationWheel SWCombinationWheel
+ *  @param backgroundView     NSUInteger
+ *
+ *  @return UIView
+ */
+- (UIView *)backgroundViewForCombinationWheel:(SWCombinationWheel *)swCombinationWheel;
+
+@optional
+
 @end
 
 
@@ -96,9 +108,9 @@
 @property (readonly, strong, nonatomic) UIView *wheel;
 
 /**
- *  This will be cutout to the same view as the wheel, but it wont rotate
+ *  This will be cutout to the same view as the wheel, but it wont rotate. Use datasource (backgroundViewForCombinationWheel) and reload data to change
  */
-@property (strong, nonatomic) UIView *backgroundView;
+@property (readonly, strong, nonatomic) UIView *backgroundView;
 
 /**
  *  This view will be masked and animated with the wheel view. It will be 'cutout' to exactly fit the wheel view

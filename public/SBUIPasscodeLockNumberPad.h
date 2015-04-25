@@ -34,6 +34,7 @@
 
 - (id)initWithDefaultSizeAndLightStyle:(BOOL)arg1;
 
+- (id)_fontForAncillaryButton;
 - (void)setDownButton:(id)arg1;
 
 @end

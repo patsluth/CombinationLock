@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "SWCombinationItem.h"
+#import "NSTimer+SW.h"
 
 
 
@@ -83,12 +84,17 @@
 {
     SWCombinationItem *item = [[SWCombinationItem alloc] init];
     
-    item.frame = CGRectMake(0, 0, 70, 50);
+    item.frame = CGRectMake(0, 0, 40, 60);
     
     item.label.text =  [NSString stringWithFormat:@"%lu", (unsigned long)index];
     item.identifier = item.label.text;
     
     return item;
+}
+
+- (UIView *)backgroundViewForCombinationWheel:(SWCombinationWheel *)swCombinationWheel
+{
+    return [[UIVisualEffectView alloc] initWithEffect:[UIBlurEffect effectWithStyle:UIBlurEffectStyleLight]];
 }
 
 #pragma mark SWCombinationWheelDelegate

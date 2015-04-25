@@ -20,7 +20,7 @@
 {
 }
 
-@property(nonatomic) id <SBNumberPadDelegate> delegate;
+@property(nonatomic) id<SBNumberPadDelegate> delegate;
 
 - (id)buttonForPoint:(struct CGPoint)arg1 forEvent:(id)arg2;
 

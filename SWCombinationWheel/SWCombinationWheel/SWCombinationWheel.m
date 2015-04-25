@@ -25,6 +25,7 @@
 @property (strong, nonatomic) NSLayoutConstraint *heightConstraint;
 
 @property (readwrite, strong, nonatomic) UIView *wheel;
+@property (readwrite, strong, nonatomic) UIView *backgroundView;
 
 //NSArray of current SWCombinationItem items
 @property (strong, nonatomic) NSArray *wheelCombinationItems;
@@ -94,7 +95,6 @@
         self.backgroundColor = [UIColor clearColor];
         
         if (self.wheel){}
-        if (self.backgroundView){}
         
         [self reset];
         
@@ -127,10 +127,17 @@
 {
     [self reset];
     
+    if (self.backgroundView){
+        [self.backgroundView removeFromSuperview];
+        self.backgroundView = nil;
+    }
+    
     [self setNeedsLayout];
     [self layoutIfNeeded];
     
     if (self.dataSource){
+        
+        if (self.backgroundView){}
         
         CGSize needleSize = [self.dataSource sizeForCombinationNeedleView:self];
         
@@ -716,47 +723,50 @@
 
 - (UIView *)backgroundView
 {
-    if (!_backgroundView){
+    if (self.delegate && [self.delegate respondsToSelector:@selector(backgroundViewForCombinationWheel:)]){
         
-        _backgroundView = [[UIVisualEffectView alloc] initWithEffect:[UIBlurEffect effectWithStyle:UIBlurEffectStyleLight]];
-        
-        _backgroundView.clipsToBounds = YES;
-        _backgroundView.userInteractionEnabled = NO;
-        _backgroundView.translatesAutoresizingMaskIntoConstraints = NO;
-        
-        [self insertSubview:_backgroundView belowSubview:self.wheel];
-        
-        [self addConstraint:[NSLayoutConstraint constraintWithItem:_backgroundView
-                                                         attribute:NSLayoutAttributeTop
-                                                         relatedBy:NSLayoutRelationEqual
-                                                            toItem:self
-                                                         attribute:NSLayoutAttributeTop
-                                                        multiplier:1.0
-                                                          constant:0.0]];
-        [self addConstraint:[NSLayoutConstraint constraintWithItem:_backgroundView
-                                                         attribute:NSLayoutAttributeLeading
-                                                         relatedBy:NSLayoutRelationEqual
-                                                            toItem:self
-                                                         attribute:NSLayoutAttributeLeft
-                                                        multiplier:1.0
-                                                          constant:0.0]];
-        [self addConstraint:[NSLayoutConstraint constraintWithItem:_backgroundView
-                                                         attribute:NSLayoutAttributeBottom
-                                                         relatedBy:NSLayoutRelationEqual
-                                                            toItem:self
-                                                         attribute:NSLayoutAttributeBottom
-                                                        multiplier:1.0
-                                                          constant:0.0]];
-        [self addConstraint:[NSLayoutConstraint constraintWithItem:_backgroundView
-                                                         attribute:NSLayoutAttributeTrailing
-                                                         relatedBy:NSLayoutRelationEqual
-                                                            toItem:self
-                                                         attribute:NSLayoutAttributeRight
-                                                        multiplier:1.0
-                                                          constant:0.0]];
-        
-        [self layoutIfNeeded];
-        
+        if (!_backgroundView){
+            
+            _backgroundView = [self.dataSource backgroundViewForCombinationWheel:self];
+            
+            _backgroundView.clipsToBounds = YES;
+            _backgroundView.userInteractionEnabled = NO;
+            _backgroundView.translatesAutoresizingMaskIntoConstraints = NO;
+            
+            [self insertSubview:_backgroundView belowSubview:self.wheel];
+            
+            [self addConstraint:[NSLayoutConstraint constraintWithItem:_backgroundView
+                                                             attribute:NSLayoutAttributeTop
+                                                             relatedBy:NSLayoutRelationEqual
+                                                                toItem:self
+                                                             attribute:NSLayoutAttributeTop
+                                                            multiplier:1.0
+                                                              constant:0.0]];
+            [self addConstraint:[NSLayoutConstraint constraintWithItem:_backgroundView
+                                                             attribute:NSLayoutAttributeLeading
+                                                             relatedBy:NSLayoutRelationEqual
+                                                                toItem:self
+                                                             attribute:NSLayoutAttributeLeft
+                                                            multiplier:1.0
+                                                              constant:0.0]];
+            [self addConstraint:[NSLayoutConstraint constraintWithItem:_backgroundView
+                                                             attribute:NSLayoutAttributeBottom
+                                                             relatedBy:NSLayoutRelationEqual
+                                                                toItem:self
+                                                             attribute:NSLayoutAttributeBottom
+                                                            multiplier:1.0
+                                                              constant:0.0]];
+            [self addConstraint:[NSLayoutConstraint constraintWithItem:_backgroundView
+                                                             attribute:NSLayoutAttributeTrailing
+                                                             relatedBy:NSLayoutRelationEqual
+                                                                toItem:self
+                                                             attribute:NSLayoutAttributeRight
+                                                            multiplier:1.0
+                                                              constant:0.0]];
+            
+            [self layoutIfNeeded];
+            
+        }
     }
     
     return _backgroundView;

@@ -5,6 +5,8 @@
 {
 }
 
++ (id)imageForCharacter:(unsigned int)arg1;
+
 - (id)stringCharacter;
 
 @end

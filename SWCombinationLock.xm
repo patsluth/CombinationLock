@@ -6,10 +6,27 @@
 #import "SBUIPasscodeLockViewBase.h"
 #import "SBUIPasscodeEntryField.h"
 
+#import "SBWallpaperController.h"
+#import "SBFWallpaperView.h"
+#import "_UILegibilitySettings.h"
+
 #import "SWCombinationWheel.h"
 #import "SWCombinationItem.h"
 
 #import "libSluthware.h"
+#import "NSTimer+SW.h"
+
+#import "substrate.h"
+
+
+
+
+
+@interface SBNumberPadWithDelegate(SW)
+
+- (SBFWallpaperView *)sbWallpaperView;
+
+@end
 
 
 
@@ -112,12 +129,85 @@
 {
     SWCombinationItem *item = [[SWCombinationItem alloc] init];
     
-    item.frame = CGRectMake(0, 0, 70, 50);
+    item.frame = CGRectMake(0, 0, 55, 50);
     
-    item.label.text =  [NSString stringWithFormat:@"%lu", (unsigned long)index];
-    item.identifier = item.label.text;
+    item.identifier = [NSString stringWithFormat:@"%lu", (unsigned long)index];
+    item.label.text = item.identifier;
+    //taken from [SBUIPasscodeLockNumberPad _fontForAncillaryButton], increased size from 16
+    item.label.font = [UIFont fontWithName:@".HelveticaNeueInterface-Regular" size:27];
+    
+    //SBPasscodeNumberPadButton *dopelganger = [self buttonForStringCharacter:item.identifier];
+    
+    SBFWallpaperView *sbWallpaper = [self sbWallpaperView];
+    if (sbWallpaper){
+        item.label.textColor = sbWallpaper.legibilitySettings.primaryColor;
+    }
     
     return item;
+}
+
+%new
+- (UIView *)backgroundViewForCombinationWheel:(SWCombinationWheel *)swCombinationWheel
+{
+    SBFWallpaperView *sbWallpaper = [self sbWallpaperView];
+    if (sbWallpaper) {
+        
+        UIImageView *backgroundImage = [[UIImageView alloc] initWithImage:[sbWallpaper _blurredImage]];
+        backgroundImage.contentMode = UIViewContentModeScaleAspectFill;
+        backgroundImage.translatesAutoresizingMaskIntoConstraints = NO;
+        
+        UIView *background = [[UIView alloc] init];
+        
+        [background addSubview:backgroundImage];
+        
+        [background addConstraint:[NSLayoutConstraint constraintWithItem:backgroundImage
+                                                               attribute:NSLayoutAttributeWidth
+                                                               relatedBy:NSLayoutRelationEqual
+                                                                  toItem:nil
+                                                               attribute:NSLayoutAttributeNotAnAttribute
+                                                              multiplier:1.0
+                                                                constant:sbWallpaper.bounds.size.width]];
+        [background addConstraint:[NSLayoutConstraint constraintWithItem:backgroundImage
+                                                               attribute:NSLayoutAttributeHeight
+                                                               relatedBy:NSLayoutRelationEqual
+                                                                  toItem:nil
+                                                               attribute:NSLayoutAttributeNotAnAttribute
+                                                              multiplier:1.0
+                                                                constant:sbWallpaper.bounds.size.height]];
+        [background addConstraint:[NSLayoutConstraint constraintWithItem:backgroundImage
+                                                               attribute:NSLayoutAttributeCenterX
+                                                               relatedBy:NSLayoutRelationEqual
+                                                                  toItem:background
+                                                               attribute:NSLayoutAttributeCenterX
+                                                              multiplier:1.0
+                                                                constant:0.0]];
+        [background addConstraint:[NSLayoutConstraint constraintWithItem:backgroundImage
+                                                               attribute:NSLayoutAttributeCenterY
+                                                               relatedBy:NSLayoutRelationEqual
+                                                                  toItem:background
+                                                               attribute:NSLayoutAttributeCenterY
+                                                              multiplier:1.0
+                                                                constant:0.0]];
+        
+        [background layoutIfNeeded];
+        
+        return background;
+        
+    }
+    
+    return nil;
+}
+
+//to get cached blur view
+%new
+- (SBFWallpaperView *)sbWallpaperView
+{
+    SBWallpaperController *wallpaperController = [%c(SBWallpaperController) sharedInstance];
+    if (wallpaperController) {
+        return MSHookIvar<SBFWallpaperView *>(wallpaperController, "_sharedWallpaperView");
+    }
+    
+    return nil;
 }
 
 #pragma mark SWCombinationWheelDelegate
@@ -132,14 +222,19 @@
         if ([self.delegate isKindOfClass:[%c(SBUIPasscodeLockNumberPad) class]]){
             
             SBUIPasscodeLockNumberPad *numberPad = (SBUIPasscodeLockNumberPad *)self.delegate;
+            
+            if ([numberPad.delegate respondsToSelector:@selector(passcodeLockNumberPad:keyDown:)] &&
+                [numberPad.delegate respondsToSelector:@selector(passcodeLockNumberPad:keyUp:)]){
                 
-            if ([numberPad.delegate respondsToSelector:@selector(passcodeLockNumberPad:keyDown:)]){
-                [numberPad.delegate passcodeLockNumberPad:self keyDown:dopelganger];
             }
             
-            if ([numberPad.delegate respondsToSelector:@selector(passcodeLockNumberPad:keyUp:)]){
+            [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+                
+                [numberPad.delegate passcodeLockNumberPad:self keyDown:dopelganger];
+                [numberPad setDownButton:dopelganger];
                 [numberPad.delegate passcodeLockNumberPad:self keyUp:dopelganger];
-            }
+                
+            }];
         }
     }
 }
@@ -156,7 +251,8 @@
             SBUIPasscodeLockViewBase *lockViewBase = (SBUIPasscodeLockViewBase *)numberPad.delegate;
             
             //passcode view is full, so if we reset it, it wont unlock even if the passcode is correct
-            if (lockViewBase._entryField.stringValue.length != 4){
+            if (lockViewBase._entryField.stringValue.length != 4 &&
+                swCombinationWheel.wheelCombinationSelection.count != 4){
                 
                 //reset passcode
                 if ([numberPad.delegate respondsToSelector:@selector(passcodeLockNumberPadBackspaceButtonHit:)]){

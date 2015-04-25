@@ -12,11 +12,12 @@
 
 
 
-@interface SWCombinationItem : UIVisualEffectView
+@interface SWCombinationItem : UIView//UIVisualEffectView
 
 @property (strong, nonatomic) NSString *identifier;
 
 @property (strong, nonatomic) UILabel *label;
+@property (strong, nonatomic) UIImageView *image;
 
 - (void)didGetSelected;
 

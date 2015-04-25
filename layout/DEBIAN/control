@@ -1,9 +1,9 @@
 Package: com.patsluth.swcombinationlock
 Name: Combination Lock
-Depends: mobilesubstrate
+Depends: firmware (>= 7.1), mobilesubstrate, com.patsluth.libsw
 Version: 1.0
 Architecture: iphoneos-arm
-Description: An awesome MobileSubstrate tweak!
+Description: Combination Lock replacement for iOS lockscreen number pad.
 Maintainer: Pat Sluth
 Author: Pat Sluth
 Section: Tweaks
