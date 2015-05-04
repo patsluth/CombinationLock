@@ -13,9 +13,6 @@
 #import "SWCombinationWheel.h"
 #import "SWCombinationItem.h"
 
-#import "libSluthware.h"
-#import "NSTimer+SW.h"
-
 #import "substrate.h"
 
 
@@ -106,7 +103,7 @@
 %new
 - (CGFloat)diamaterForCombinationWheelInnerMask:(SWCombinationWheel *)swCombinationWheel
 {
-    return fmin(self.bounds.size.width, self.bounds.size.height) * 0.5; //50%
+    return fmin(self.bounds.size.width, self.bounds.size.height) * 0.4; //percentage
 }
 
 %new
@@ -129,10 +126,16 @@
 {
     SWCombinationItem *item = [[SWCombinationItem alloc] init];
     
-    item.frame = CGRectMake(0, 0, 55, 50);
+    //make the width evenly distributed on the inner mask circle, so none of the items overlap
+    CGFloat width = (M_PI * [self diamaterForCombinationWheelInnerMask:swCombinationWheel]) / [self numberOfCombinationItemsInCircumferenceWheel:swCombinationWheel];
+    //make the height exactly equal to the size of the wheel
+    CGFloat height = ([self diamaterForCombinationWheel:swCombinationWheel] - [self diamaterForCombinationWheelInnerMask:swCombinationWheel]) / 2.0;
     
-    item.identifier = [NSString stringWithFormat:@"%lu", (unsigned long)index];
-    item.label.text = item.identifier;
+    item.frame = CGRectIntegral(CGRectMake(0, 0, width, height + 20)); //20 padding
+    
+    
+    item.label.text = [NSString stringWithFormat:@"%lu", (unsigned long)index];
+    item.identifier = item.label.text;
     //taken from [SBUIPasscodeLockNumberPad _fontForAncillaryButton], increased size from 16
     item.label.font = [UIFont fontWithName:@".HelveticaNeueInterface-Regular" size:27];
     
@@ -242,28 +245,28 @@
 %new
 - (void)swCombinationWheel:(SWCombinationWheel *)swCombinationWheel didEnterCombination:(NSArray *)combination
 {
-    if ([self.delegate isKindOfClass:[%c(SBUIPasscodeLockNumberPad) class]]){
-        
-        SBUIPasscodeLockNumberPad *numberPad = (SBUIPasscodeLockNumberPad *)self.delegate;
-        
-        if ([numberPad.delegate isKindOfClass:%c(SBUIPasscodeLockViewBase)]){
-            
-            SBUIPasscodeLockViewBase *lockViewBase = (SBUIPasscodeLockViewBase *)numberPad.delegate;
-            
-            //passcode view is full, so if we reset it, it wont unlock even if the passcode is correct
-            if (lockViewBase._entryField.stringValue.length != 4 &&
-                swCombinationWheel.wheelCombinationSelection.count != 4){
-                
-                //reset passcode
-                if ([numberPad.delegate respondsToSelector:@selector(passcodeLockNumberPadBackspaceButtonHit:)]){
-                    for (NSUInteger x = 0; x < 5; x++){
-                        [numberPad.delegate passcodeLockNumberPadBackspaceButtonHit:self];
-                    }
-                }
-                
-            }
-        }
-    }
+//    if ([self.delegate isKindOfClass:[%c(SBUIPasscodeLockNumberPad) class]]){
+//        
+//        SBUIPasscodeLockNumberPad *numberPad = (SBUIPasscodeLockNumberPad *)self.delegate;
+//        
+//        if ([numberPad.delegate isKindOfClass:%c(SBUIPasscodeLockViewBase)]){
+//            
+//            SBUIPasscodeLockViewBase *lockViewBase = (SBUIPasscodeLockViewBase *)numberPad.delegate;
+//            
+//            //passcode view is full, so if we reset it, it wont unlock even if the passcode is correct
+//            if (lockViewBase._entryField.stringValue.length != 4 &&
+//                swCombinationWheel.wheelCombinationSelection.count != 4){
+//                
+//                //reset passcode
+//                if ([numberPad.delegate respondsToSelector:@selector(passcodeLockNumberPadBackspaceButtonHit:)]){
+//                    for (NSUInteger x = 0; x < 5; x++){
+//                        [numberPad.delegate passcodeLockNumberPadBackspaceButtonHit:self];
+//                    }
+//                }
+//                
+//            }
+//        }
+//    }
 }
 
 #pragma mark -

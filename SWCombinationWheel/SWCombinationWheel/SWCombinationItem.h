@@ -12,7 +12,7 @@
 
 
 
-@interface SWCombinationItem : UIView//UIVisualEffectView
+@interface SWCombinationItem : UIView
 
 @property (strong, nonatomic) NSString *identifier;
 

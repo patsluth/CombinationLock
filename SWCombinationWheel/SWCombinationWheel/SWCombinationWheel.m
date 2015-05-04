@@ -70,6 +70,8 @@
         self.clipsToBounds = YES;
         self.translatesAutoresizingMaskIntoConstraints = NO;
         
+        if (self.wheel){}
+        
         self.widthConstraint = [NSLayoutConstraint constraintWithItem:self.wheel
                                                             attribute:NSLayoutAttributeWidth
                                                             relatedBy:NSLayoutRelationEqual
@@ -93,8 +95,6 @@
         [self addGestureRecognizer:pan];
         
         self.backgroundColor = [UIColor clearColor];
-        
-        if (self.wheel){}
         
         [self reset];
         
@@ -139,8 +139,6 @@
         
         if (self.backgroundView){}
         
-        CGSize needleSize = [self.dataSource sizeForCombinationNeedleView:self];
-        
         //combination item setup
         NSUInteger numberOfItems = [self.dataSource numberOfCombinationItemsInCircumferenceWheel:self];
         NSMutableArray *tempItems = [NSMutableArray arrayWithCapacity:numberOfItems];
@@ -164,7 +162,7 @@
             //since we are setting the center of the view
             //this will align the top of the label to the outside of the circle
             //basically making a smaller circle, with a difference in radius of half the view height
-            radius -= CGRectGetMidY(item.bounds) + needleSize.height;
+            radius -= CGRectGetMidY(item.bounds);
             
             CGFloat x = center.x + radius * cos(angle);
             CGFloat y = center.y + radius * sin(angle);
@@ -567,7 +565,7 @@
     CGPoint center = CGPointMake(outerRadius, outerRadius);
     
     
-    //See Fig A
+    //See SWCombinationWheel_FigA.png
     CGPoint needlePoint_A = CGPointMake((center.x + outerRadius), center.y + (needleSize.width / 2));
     CGPoint needlePoint_B = CGPointMake((center.x + outerRadius) - needleSize.height, center.y);
     
@@ -728,6 +726,10 @@
         if (!_backgroundView){
             
             _backgroundView = [self.dataSource backgroundViewForCombinationWheel:self];
+            
+            if (!_backgroundView){
+                return nil;
+            }
             
             _backgroundView.clipsToBounds = YES;
             _backgroundView.userInteractionEnabled = NO;

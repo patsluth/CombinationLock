@@ -84,10 +84,14 @@
 {
     SWCombinationItem *item = [[SWCombinationItem alloc] init];
     
-    item.frame = CGRectMake(0, 0, 40, 60);
+    //make the width evenly distributed on the inner mask circle, so none of the items overlap
+    CGFloat width = (M_PI * [self diamaterForCombinationWheelInnerMask:swCombinationWheel]) / [self numberOfCombinationItemsInCircumferenceWheel:swCombinationWheel];
+    //make the height exactly equal to the size of the wheel
+    CGFloat height = ([self diamaterForCombinationWheel:swCombinationWheel] - [self diamaterForCombinationWheelInnerMask:swCombinationWheel]) / 2.0;
+   
+    item.frame = CGRectIntegral(CGRectMake(0, 0, width, height));
     
     item.label.text =  [NSString stringWithFormat:@"%lu", (unsigned long)index];
-    item.identifier = item.label.text;
     
     return item;
 }

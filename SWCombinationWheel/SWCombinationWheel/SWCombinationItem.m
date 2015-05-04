@@ -24,6 +24,8 @@
 
 @implementation SWCombinationItem
 
+#pragma mark Init
+
 - (id)init
 {
     self = [self initWithEffect:nil];
@@ -44,39 +46,54 @@
     return self;
 }
 
+#pragma mark Public
+
 - (void)didGetSelected
 {
-    UIControl *x;
-    [x sendActionsForControlEvents:UIControlEventTouchDown];
-    [x sendActionsForControlEvents:UIControlEventTouchUpInside];
+    for (UIView *v in self.subviews){
+        
+        [UIView animateWithDuration:0.2
+                              delay:0.0
+                            options:UIViewAnimationCurveLinear | UIViewAnimationOptionAllowUserInteraction
+                         animations:^{
+                             v.transform = CGAffineTransformMakeScale(2.2, 2.2);
+                         }completion:^(BOOL finished){
+                             [UIView animateWithDuration:0.2
+                                                   delay:0.0
+                                                 options:UIViewAnimationOptionAllowUserInteraction | UIViewAnimationCurveLinear
+                                              animations:^{
+                                                  v.transform = CGAffineTransformIdentity;
+                                              }completion:^(BOOL finished){
+                                                  v.transform = CGAffineTransformIdentity;
+                                              }];
+                         }];
+        
+    }
+}
+
+#pragma mark Internal
+
+- (NSString *)identifier
+{
+    if (!_identifier){
+        if (self.label){
+            return self.label.text;
+        }
+    }
     
-    
-    CGAffineTransform originalTransform = CGAffineTransformIdentity;
-    CGFloat angle = atan2f(self.transform.b, self.transform.a);
-    originalTransform = CGAffineTransformRotate(originalTransform, angle);
-    
-    [UIView animateWithDuration:0.2
-                          delay:0.0
-                        options:UIViewAnimationCurveLinear | UIViewAnimationOptionAllowUserInteraction
-                     animations:^{
-                         self.transform = CGAffineTransformScale(originalTransform, 2.2, 2.2);
-                     }completion:^(BOOL finished){
-                         [UIView animateWithDuration:0.2
-                                               delay:0.0
-                                             options:UIViewAnimationOptionAllowUserInteraction | UIViewAnimationCurveLinear
-                                          animations:^{
-                                              self.transform = originalTransform;
-                                          }completion:^(BOOL finished){
-                                              self.transform = originalTransform;
-                                          }];
-                     }];
+    return _identifier;
 }
 
 - (UILabel *)label
 {
     if (!_label){
         
-        _label = [[UILabel alloc] initWithFrame:CGRectMake(0.0, 0.0, self.frame.size.width, self.frame.size.height)];
+        _label = [[UILabel alloc] init];
+        
+        _label.userInteractionEnabled = NO;
+        
+        [_label addObserver:self forKeyPath:@"text" options:NSKeyValueObservingOptionNew context:nil];
+        [_label addObserver:self forKeyPath:@"font" options:NSKeyValueObservingOptionNew context:nil];
         
         _label.textAlignment = NSTextAlignmentCenter;
         _label.backgroundColor = [UIColor clearColor];
@@ -89,6 +106,15 @@
     }
     
     return _label;
+}
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
+{
+    if (object == self.label){
+        //keep our label centered
+        [self.label sizeToFit];
+        self.label.center = CGPointMake(CGRectGetMidX(self.bounds), CGRectGetMidY(self.bounds));
+    }
 }
 
 - (UIImageView *)image
@@ -139,6 +165,12 @@
     }
     
     return _image;
+}
+
+- (void)dealloc
+{
+    [_label removeObserver:self forKeyPath:@"text"];
+    [_label removeObserver:self forKeyPath:@"font"];
 }
 
 @end

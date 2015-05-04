@@ -45,16 +45,6 @@
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="F73-rw-3BM">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                    <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="IMG_2136" translatesAutoresizingMaskIntoConstraints="NO" id="tYC-MG-vfO">
-                                            <rect key="frame" x="149" y="103" width="750" height="1334"/>
-                                        </imageView>
-                                    </subviews>
-                                    <variation key="default">
-                                        <mask key="subviews">
-                                            <exclude reference="tYC-MG-vfO"/>
-                                        </mask>
-                                    </variation>
                                 </view>
                                 <blurEffect style="dark"/>
                             </visualEffectView>
@@ -76,7 +66,4 @@
             <point key="canvasLocation" x="-366" y="382"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="IMG_2136" width="750" height="1334"/>
-    </resources>
 </document>
