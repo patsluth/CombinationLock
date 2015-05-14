@@ -39,6 +39,7 @@
     
     if (self){
         
+        self.userInteractionEnabled = NO;
         self.backgroundColor = [UIColor clearColor];
         
     }
@@ -52,15 +53,15 @@
 {
     for (UIView *v in self.subviews){
         
-        [UIView animateWithDuration:0.2
+        [UIView animateWithDuration:0.15
                               delay:0.0
-                            options:UIViewAnimationCurveLinear | UIViewAnimationOptionAllowUserInteraction
+                            options:UIViewAnimationOptionAllowAnimatedContent | UIViewAnimationCurveLinear
                          animations:^{
                              v.transform = CGAffineTransformMakeScale(2.2, 2.2);
                          }completion:^(BOOL finished){
-                             [UIView animateWithDuration:0.2
+                             [UIView animateWithDuration:0.15
                                                    delay:0.0
-                                                 options:UIViewAnimationOptionAllowUserInteraction | UIViewAnimationCurveLinear
+                                                 options:UIViewAnimationOptionAllowAnimatedContent | UIViewAnimationCurveLinear
                                               animations:^{
                                                   v.transform = CGAffineTransformIdentity;
                                               }completion:^(BOOL finished){

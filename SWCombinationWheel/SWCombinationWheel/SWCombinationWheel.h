@@ -91,6 +91,13 @@
  */
 - (void)swCombinationWheel:(SWCombinationWheel *)swCombinationWheel didEnterCombination:(NSArray *)combination;
 
+/**
+ *  Called when the lock is rotated three times (Like a real life combination lock, you rotate 3 times to reset)
+ *
+ *  @param swCombinationWheel SWCombinationWheel
+ */
+- (void)didClearCombinationForSWCombinationWheel:(SWCombinationWheel *)swCombinationWheel;
+
 @end
 
 

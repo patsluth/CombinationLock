@@ -103,16 +103,18 @@
 %new
 - (CGFloat)diamaterForCombinationWheelInnerMask:(SWCombinationWheel *)swCombinationWheel
 {
-    return fmin(self.bounds.size.width, self.bounds.size.height) * 0.4; //percentage
+    return fmin(self.bounds.size.width, self.bounds.size.height) * 0.45; //percentage
 }
 
 %new
 - (CGSize)sizeForCombinationNeedleView:(SWCombinationWheel *)swCombinationWheel
 {
     CGFloat centerOfRing = [self diamaterForCombinationWheel:nil] - [self diamaterForCombinationWheelInnerMask:nil];
-    centerOfRing /= 6;
+    centerOfRing /= 2; //at this point we will have the distance between the outer diamater and inner diamater
+    centerOfRing /= 2;
+    centerOfRing /= 2;
     
-    return CGSizeMake(40, centerOfRing);
+    return CGSizeMake(centerOfRing * 2, centerOfRing);
 }
 
 %new
@@ -267,6 +269,22 @@
 //            }
 //        }
 //    }
+}
+
+%new
+- (void)didClearCombinationForSWCombinationWheel:(SWCombinationWheel *)swCombinationWheel
+{
+    SBUIPasscodeLockNumberPad *numberPad = (SBUIPasscodeLockNumberPad *)self.delegate;
+    
+    if ([numberPad.delegate isKindOfClass:%c(SBUIPasscodeLockViewBase)]){
+        
+        //reset passcode
+        if ([numberPad.delegate respondsToSelector:@selector(passcodeLockNumberPadBackspaceButtonHit:)]){
+            for (NSUInteger x = 0; x < 5; x++){
+                [numberPad.delegate passcodeLockNumberPadBackspaceButtonHit:self];
+            }
+        }
+    }
 }
 
 #pragma mark -

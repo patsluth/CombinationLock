@@ -90,9 +90,12 @@
         [self addConstraint:self.widthConstraint];
         [self addConstraint:self.heightConstraint];
         
-        UIPanGestureRecognizer *pan = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(pan:)];
+        UIPanGestureRecognizer *pan = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(onPan:)];
         pan.delegate = self;
         [self addGestureRecognizer:pan];
+        
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onTap:)];
+        [self addGestureRecognizer:tap];
         
         self.backgroundColor = [UIColor clearColor];
         
@@ -147,8 +150,8 @@
             
             SWCombinationItem *item = [self.dataSource swCombinationWheel:self combinationItemForIndex:i];
             
-            UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onTap:)];
-            [item addGestureRecognizer:tap];
+//            UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onTap:)];
+//            [item addGestureRecognizer:tap];
             
             tempItems[i] = item;
             [self.wheel addSubview:item];
@@ -210,7 +213,7 @@
     return YES;
 }
 
-- (void)pan:(UIPanGestureRecognizer *)pan
+- (void)onPan:(UIPanGestureRecognizer *)pan
 {
     if (pan.state == UIGestureRecognizerStateBegan){
         
@@ -278,6 +281,13 @@
         self.wheel.transform = CGAffineTransformMakeRotation(self.panStartAngleFromOrigin - newAngle);
         self.angleChangeSinceLastCombinationSelection += fabs(deltaAngle);
         
+        if (self.angleChangeSinceLastCombinationSelection > (M_PI * 2) * 3){ //3 rotations
+            if ([self.delegate respondsToSelector:@selector(didClearCombinationForSWCombinationWheel:)]){
+                [self.delegate didClearCombinationForSWCombinationWheel:self];
+            }
+            self.angleChangeSinceLastCombinationSelection = 0.0;
+        }
+        
         SWCombinationItem *closest = [self combinationItemClosestToAngle:self.needleAngle];
         
         if ([self shouldSelectItem:closest]){
@@ -286,6 +296,11 @@
             [self shrinkNeedleView:YES];
         }
     }
+}
+
+- (void)onTap:(UITapGestureRecognizer *)tap
+{
+    [self selectItem:[self combinationItemClosestToAngle:[self angleFromCenter:[tap locationInView:tap.view]]]];
 }
 
 - (void)wheelRotationDidChangeDirection
@@ -302,18 +317,11 @@
 #pragma mark -
 #pragma mark SWCombinationItem
 
-- (void)onTap:(UITapGestureRecognizer *)tap
-{
-    if ([tap.view isKindOfClass:[SWCombinationItem class]]){
-        [self selectItem:(SWCombinationItem *)tap.view];
-    }
-}
-
 - (BOOL)shouldSelectItem:(SWCombinationItem *)item
 {
     //ensure we rotate at least N% of one item distance
     if (self.angleChangeSinceLastCombinationSelection >= 0.0 &&
-        self.angleChangeSinceLastCombinationSelection < [self angleSliceForItems:self.wheelCombinationItems.count] * 0.6){
+        self.angleChangeSinceLastCombinationSelection < [self angleSliceForItems:self.wheelCombinationItems.count] * 0.5){
         return NO;
     }
     

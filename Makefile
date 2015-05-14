@@ -4,7 +4,7 @@
 
 
 THEOS_PACKAGE_DIR_NAME = debs
-PACKAGE_VERSION=1.0-1
+PACKAGE_VERSION=1.0-2
 
 
 
@@ -53,9 +53,9 @@ include $(THEOS_MAKE_PATH)/tweak.mk
 
 
 
-clean:: 
-	rm -r debs
-	rm -r .theos
+clean::
+	rm -rf debs
+	rm -rf .theos
 
 
 

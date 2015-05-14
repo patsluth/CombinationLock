@@ -71,7 +71,12 @@
 
 - (CGSize)sizeForCombinationNeedleView:(SWCombinationWheel *)swCombinationWheel
 {
-    return CGSizeMake(40, 30);
+    CGFloat centerOfRing = [self diamaterForCombinationWheel:nil] - [self diamaterForCombinationWheelInnerMask:nil];
+    centerOfRing /= 2; //at this point we will have the distance between the outer diamater and inner diamater
+    centerOfRing /= 2;
+    centerOfRing /= 2;
+    
+    return CGSizeMake(centerOfRing * 2, centerOfRing);
 }
 
 - (NSUInteger)numberOfCombinationItemsInCircumferenceWheel:(SWCombinationWheel *)swCombinationWheel
@@ -117,6 +122,11 @@
     }
     
     NSLog(@"%@", combinationString);
+}
+
+- (void)didClearCombinationForSWCombinationWheel:(SWCombinationWheel *)swCombinationWheel
+{
+    NSLog(@"PAT");
 }
 
 #pragma mark Other
