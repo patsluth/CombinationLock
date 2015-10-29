@@ -9,9 +9,9 @@
 #import "SWCombinationWheel.h"
 #import "SWCombinationItem.h"
 
-#import "SWMLine.h"
-#import "SWMCircle.h"
-#import "SWMQuadratic.h"
+#import "libsw/libsluthware/SWMLine.h"
+#import "libsw/libsluthware/SWMCircle.h"
+#import "libsw/libsluthware/SWMQuadratic.h"
 
 
 

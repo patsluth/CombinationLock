@@ -7,20 +7,24 @@
 	objects = {
 
 /* Begin PBXFileReference section */
-		2E0CC25B1AD8487400118802 /* layout */ = {isa = PBXFileReference; lastKnownFileType = folder; path = layout; sourceTree = "<group>"; };
-		2E0CC25C1AD848EF00118802 /* Makefile */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
-		2E0CC25D1AD84A0F00118802 /* SWCombinationLock.xm */ = {isa = PBXFileReference; lastKnownFileType = text; path = SWCombinationLock.xm; sourceTree = "<group>"; };
-		2E7897681ADCB1FB0032F5D3 /* public */ = {isa = PBXFileReference; lastKnownFileType = folder; path = public; sourceTree = "<group>"; };
+		2EBA090F1BE29C2700923582 /* Assets */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Assets; path = combinationlock/Assets; sourceTree = "<group>"; };
+		2EBA09121BE29C2700923582 /* layout */ = {isa = PBXFileReference; lastKnownFileType = folder; name = layout; path = combinationlock/layout; sourceTree = "<group>"; };
+		2EBA09131BE29C2700923582 /* Makefile */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.make; name = Makefile; path = combinationlock/Makefile; sourceTree = "<group>"; };
+		2EBA09141BE29C2700923582 /* public */ = {isa = PBXFileReference; lastKnownFileType = folder; name = public; path = combinationlock/public; sourceTree = "<group>"; };
+		2EBA09151BE29C2700923582 /* SWCombinationLock.xm */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; name = SWCombinationLock.xm; path = combinationlock/SWCombinationLock.xm; sourceTree = "<group>"; };
+		2EBA09161BE29C2700923582 /* SWCombinationWheel */ = {isa = PBXFileReference; lastKnownFileType = folder; name = SWCombinationWheel; path = combinationlock/SWCombinationWheel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
 		2E0CC2541AD8483400118802 = {
 			isa = PBXGroup;
 			children = (
-				2E0CC25B1AD8487400118802 /* layout */,
-				2E7897681ADCB1FB0032F5D3 /* public */,
-				2E0CC25C1AD848EF00118802 /* Makefile */,
-				2E0CC25D1AD84A0F00118802 /* SWCombinationLock.xm */,
+				2EBA090F1BE29C2700923582 /* Assets */,
+				2EBA09121BE29C2700923582 /* layout */,
+				2EBA09131BE29C2700923582 /* Makefile */,
+				2EBA09141BE29C2700923582 /* public */,
+				2EBA09161BE29C2700923582 /* SWCombinationWheel */,
+				2EBA09151BE29C2700923582 /* SWCombinationLock.xm */,
 			);
 			sourceTree = "<group>";
 		};

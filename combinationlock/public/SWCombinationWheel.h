@@ -8,9 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-//@import pop;
-//@import swFramework;
-
 @class SWCombinationWheel;
 @class SWCombinationItem;
 
