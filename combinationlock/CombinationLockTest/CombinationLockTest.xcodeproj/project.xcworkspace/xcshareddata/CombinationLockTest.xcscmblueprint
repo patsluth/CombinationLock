@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "0A51FE768F84F66CCF5DBEFBA90B26A3CBBFBD5A",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "0A51FE768F84F66CCF5DBEFBA90B26A3CBBFBD5A" : 0,
+    "E2811579280C8FC45DBD8A3EB086096BA7A2E580" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "EB8F3FE0-65A9-43C0-9F42-11441359F1CC",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "0A51FE768F84F66CCF5DBEFBA90B26A3CBBFBD5A" : "combination-lock\/",
+    "E2811579280C8FC45DBD8A3EB086096BA7A2E580" : "..\/..\/..\/..\/opt\/theos"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "CombinationLockTest",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "combinationlock\/CombinationLockTest\/CombinationLockTest.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/bitbucket.org\/patsluth\/combination-lock.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "0A51FE768F84F66CCF5DBEFBA90B26A3CBBFBD5A"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/kirb\/theos.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "E2811579280C8FC45DBD8A3EB086096BA7A2E580"
+    }
+  ]
+}

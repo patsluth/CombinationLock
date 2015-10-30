@@ -6,3 +6,4 @@ Description: Combination Lock replacement for iOS lockscreen number pad.
 Maintainer: Pat Sluth
 Author: Pat Sluth
 Section: Tweaks
+Icon: file:///Library/Application Support/CombinationLockSupport.bundle/Icon.png

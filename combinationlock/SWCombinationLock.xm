@@ -13,8 +13,6 @@
 #import "SWCombinationWheel.h"
 #import "SWCombinationItem.h"
 
-#import "substrate.h"
-
 
 
 
@@ -280,7 +278,7 @@
         
         //reset passcode
         if ([numberPad.delegate respondsToSelector:@selector(passcodeLockNumberPadBackspaceButtonHit:)]){
-            for (NSUInteger x = 0; x < 5; x++){
+            for (NSUInteger x = 0; x < 6; x++){
                 [numberPad.delegate passcodeLockNumberPadBackspaceButtonHit:self];
             }
         }
@@ -362,3 +360,7 @@
 %ctor
 {
 }
+
+
+
+

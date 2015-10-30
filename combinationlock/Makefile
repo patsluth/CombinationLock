@@ -2,8 +2,8 @@
 
 
 
-#FINALPACKAGE = 1
-PACKAGE_VERSION=1.0-2
+FINALPACKAGE = 1
+PACKAGE_VERSION=1.0-3
 
 
 
@@ -28,8 +28,23 @@ ADDITIONAL_CFLAGS = -Ipublic
 
 
 
+BUNDLE_NAME = CombinationLockSupport
+CombinationLockSupport_INSTALL_PATH = /Library/Application Support
+
+
+
+
+
+SUBPROJECTS += combinationlockprefs/combinationlockprefs
+
+
+
+
+
 include theos/makefiles/common.mk
+include theos/makefiles/bundle.mk
 include theos/makefiles/tweak.mk
+include theos/makefiles/aggregate.mk
 include theos/makefiles/swcommon.mk
 
 
