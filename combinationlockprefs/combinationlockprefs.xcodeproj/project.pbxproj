@@ -7,41 +7,41 @@
 	objects = {
 
 /* Begin PBXFileReference section */
-		2E97916B1BE3BD8B005DAFF2 /* public */ = {isa = PBXFileReference; lastKnownFileType = folder; name = public; path = combinationlockprefs/public; sourceTree = "<group>"; };
-		2E97916C1BE3BD8B005DAFF2 /* Resources */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Resources; path = combinationlockprefs/Resources; sourceTree = "<group>"; };
-		2E97916E1BE3BD8B005DAFF2 /* entry.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; name = entry.plist; path = combinationlockprefs/entry.plist; sourceTree = "<group>"; };
-		2E97916F1BE3BD8B005DAFF2 /* SWCombinationLockPSListController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = SWCombinationLockPSListController.mm; path = combinationlockprefs/SWCombinationLockPSListController.mm; sourceTree = "<group>"; };
-		2E9791701BE3BD8B005DAFF2 /* Makefile */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.make; name = Makefile; path = combinationlockprefs/Makefile; sourceTree = "<group>"; };
+		2EA989111BE9362600A79AC9 /* public */ = {isa = PBXFileReference; lastKnownFileType = folder; path = public; sourceTree = "<group>"; };
+		2EA989121BE9362600A79AC9 /* Resources */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Resources; sourceTree = "<group>"; };
+		2EA989131BE9362600A79AC9 /* entry.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = entry.plist; sourceTree = "<group>"; };
+		2EA989141BE9362600A79AC9 /* SWCombinationLockPSListController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = SWCombinationLockPSListController.mm; sourceTree = "<group>"; };
+		2EA989151BE9362600A79AC9 /* Makefile */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
-		2E9791641BE3BCC4005DAFF2 = {
+		2ED32CAD1BE935EA0052D7C8 = {
 			isa = PBXGroup;
 			children = (
-				2E9791701BE3BD8B005DAFF2 /* Makefile */,
-				2E97916B1BE3BD8B005DAFF2 /* public */,
-				2E97916C1BE3BD8B005DAFF2 /* Resources */,
-				2E97916F1BE3BD8B005DAFF2 /* SWCombinationLockPSListController.mm */,
-				2E97916E1BE3BD8B005DAFF2 /* entry.plist */,
+				2EA989111BE9362600A79AC9 /* public */,
+				2EA989121BE9362600A79AC9 /* Resources */,
+				2EA989131BE9362600A79AC9 /* entry.plist */,
+				2EA989141BE9362600A79AC9 /* SWCombinationLockPSListController.mm */,
+				2EA989151BE9362600A79AC9 /* Makefile */,
 			);
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXProject section */
-		2E9791651BE3BCC4005DAFF2 /* Project object */ = {
+		2ED32CAE1BE935EA0052D7C8 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0710;
 			};
-			buildConfigurationList = 2E9791681BE3BCC4005DAFF2 /* Build configuration list for PBXProject "combinationlockprefs" */;
+			buildConfigurationList = 2ED32CB11BE935EA0052D7C8 /* Build configuration list for PBXProject "CombinationLockPrefs" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 			);
-			mainGroup = 2E9791641BE3BCC4005DAFF2;
+			mainGroup = 2ED32CAD1BE935EA0052D7C8;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
@@ -50,13 +50,13 @@
 /* End PBXProject section */
 
 /* Begin XCBuildConfiguration section */
-		2E9791691BE3BCC4005DAFF2 /* Debug */ = {
+		2ED32CB21BE935EA0052D7C8 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 			};
 			name = Debug;
 		};
-		2E97916A1BE3BCC4005DAFF2 /* Release */ = {
+		2ED32CB31BE935EA0052D7C8 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 			};
@@ -65,16 +65,16 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		2E9791681BE3BCC4005DAFF2 /* Build configuration list for PBXProject "combinationlockprefs" */ = {
+		2ED32CB11BE935EA0052D7C8 /* Build configuration list for PBXProject "CombinationLockPrefs" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				2E9791691BE3BCC4005DAFF2 /* Debug */,
-				2E97916A1BE3BCC4005DAFF2 /* Release */,
+				2ED32CB21BE935EA0052D7C8 /* Debug */,
+				2ED32CB31BE935EA0052D7C8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 2E9791651BE3BCC4005DAFF2 /* Project object */;
+	rootObject = 2ED32CAE1BE935EA0052D7C8 /* Project object */;
 }

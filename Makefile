@@ -35,7 +35,7 @@ CombinationLockSupport_INSTALL_PATH = /Library/Application Support
 
 
 
-SUBPROJECTS += combinationlockprefs/combinationlockprefs
+SUBPROJECTS += CombinationLockPrefs
 
 
 
