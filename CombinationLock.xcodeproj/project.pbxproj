@@ -1,0 +1,94 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXFileReference section */
+		2ED32CA11BE9352B0052D7C8 /* Assets */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Assets; sourceTree = "<group>"; };
+		2ED32CA21BE9352B0052D7C8 /* combinationlockprefs */ = {isa = PBXFileReference; lastKnownFileType = folder; path = combinationlockprefs; sourceTree = "<group>"; };
+		2ED32CA31BE9352B0052D7C8 /* CombinationLockTest */ = {isa = PBXFileReference; lastKnownFileType = folder; path = CombinationLockTest; sourceTree = "<group>"; };
+		2ED32CA41BE9352B0052D7C8 /* final_release_debs */ = {isa = PBXFileReference; lastKnownFileType = folder; path = final_release_debs; sourceTree = "<group>"; };
+		2ED32CA51BE9352B0052D7C8 /* layout */ = {isa = PBXFileReference; lastKnownFileType = folder; path = layout; sourceTree = "<group>"; };
+		2ED32CA61BE9352B0052D7C8 /* public */ = {isa = PBXFileReference; lastKnownFileType = folder; path = public; sourceTree = "<group>"; };
+		2ED32CA71BE9352B0052D7C8 /* Resources */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Resources; sourceTree = "<group>"; };
+		2ED32CA81BE9352B0052D7C8 /* CombinationLock.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = CombinationLock.plist; sourceTree = "<group>"; };
+		2ED32CA91BE9352B0052D7C8 /* SWCombinationItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SWCombinationItem.m; sourceTree = "<group>"; };
+		2ED32CAA1BE9352B0052D7C8 /* SWCombinationWheel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SWCombinationWheel.m; sourceTree = "<group>"; };
+		2ED32CAB1BE9352B0052D7C8 /* Makefile */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
+		2ED32CAC1BE9352B0052D7C8 /* SWCombinationLock.xm */ = {isa = PBXFileReference; lastKnownFileType = text; path = SWCombinationLock.xm; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		2ED32C9A1BE934BA0052D7C8 = {
+			isa = PBXGroup;
+			children = (
+				2ED32CA11BE9352B0052D7C8 /* Assets */,
+				2ED32CA21BE9352B0052D7C8 /* combinationlockprefs */,
+				2ED32CA31BE9352B0052D7C8 /* CombinationLockTest */,
+				2ED32CA41BE9352B0052D7C8 /* final_release_debs */,
+				2ED32CA51BE9352B0052D7C8 /* layout */,
+				2ED32CAB1BE9352B0052D7C8 /* Makefile */,
+				2ED32CA61BE9352B0052D7C8 /* public */,
+				2ED32CA71BE9352B0052D7C8 /* Resources */,
+				2ED32CA91BE9352B0052D7C8 /* SWCombinationItem.m */,
+				2ED32CAA1BE9352B0052D7C8 /* SWCombinationWheel.m */,
+				2ED32CA81BE9352B0052D7C8 /* CombinationLock.plist */,
+				2ED32CAC1BE9352B0052D7C8 /* SWCombinationLock.xm */,
+			);
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXProject section */
+		2ED32C9B1BE934BA0052D7C8 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0710;
+			};
+			buildConfigurationList = 2ED32C9E1BE934BA0052D7C8 /* Build configuration list for PBXProject "CombinationLock" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 2ED32C9A1BE934BA0052D7C8;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+			);
+		};
+/* End PBXProject section */
+
+/* Begin XCBuildConfiguration section */
+		2ED32C9F1BE934BA0052D7C8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+			};
+			name = Debug;
+		};
+		2ED32CA01BE934BA0052D7C8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2ED32C9E1BE934BA0052D7C8 /* Build configuration list for PBXProject "CombinationLock" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2ED32C9F1BE934BA0052D7C8 /* Debug */,
+				2ED32CA01BE934BA0052D7C8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 2ED32C9B1BE934BA0052D7C8 /* Project object */;
+}
