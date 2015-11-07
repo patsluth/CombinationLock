@@ -8,7 +8,7 @@
 
 #import "ViewController.h"
 #import "SWCombinationItem.h"
-#import "libsw/libsluthware/NSTimer+SW.h"
+#import "libsw/libSluthware/NSTimer+SW.h"
 
 
 
@@ -32,7 +32,6 @@
     [super viewDidLoad];
     
     self.wheel = [[SWCombinationWheel alloc] init];
-    self.wheel.wheelCutoutView = self.blur;
     
     [self.view addSubview:self.wheel];
     

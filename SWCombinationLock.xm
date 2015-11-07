@@ -55,7 +55,6 @@
     
     
     SWCombinationWheel *wheel = [[SWCombinationWheel alloc] init];
-    wheel.wheelCutoutView = temp;
     
     [self addSubview:wheel];
     

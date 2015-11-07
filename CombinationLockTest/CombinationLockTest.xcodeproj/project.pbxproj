@@ -13,29 +13,12 @@
 		2E97912C1BE3B28D005DAFF2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2E97912A1BE3B28D005DAFF2 /* Main.storyboard */; };
 		2E97912E1BE3B28D005DAFF2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2E97912D1BE3B28D005DAFF2 /* Assets.xcassets */; };
 		2E9791311BE3B28D005DAFF2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2E97912F1BE3B28D005DAFF2 /* LaunchScreen.storyboard */; };
-		2E97913C1BE3B28D005DAFF2 /* CombinationLockTestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E97913B1BE3B28D005DAFF2 /* CombinationLockTestTests.m */; };
-		2E9791471BE3B28D005DAFF2 /* CombinationLockTestUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E9791461BE3B28D005DAFF2 /* CombinationLockTestUITests.m */; };
-		2E97915C1BE3B356005DAFF2 /* libSluthware.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E97915B1BE3B356005DAFF2 /* libSluthware.a */; };
 		2E9791621BE3B416005DAFF2 /* SWCombinationItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E9791601BE3B415005DAFF2 /* SWCombinationItem.m */; };
-		2E9791631BE3B416005DAFF2 /* SWCombinationWheel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E9791611BE3B416005DAFF2 /* SWCombinationWheel.m */; };
+		2E9791631BE3B416005DAFF2 /* SWCombinationWheel.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2E9791611BE3B416005DAFF2 /* SWCombinationWheel.mm */; };
+		2EAFC6521BED8606001FAE94 /* SWCombinationItem.h in Headers */ = {isa = PBXBuildFile; fileRef = 2E97915E1BE3B40C005DAFF2 /* SWCombinationItem.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2EAFC6531BED8608001FAE94 /* SWCombinationWheel.h in Headers */ = {isa = PBXBuildFile; fileRef = 2E97915F1BE3B40C005DAFF2 /* SWCombinationWheel.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2EAFC6541BED865C001FAE94 /* libSluthware.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E97915B1BE3B356005DAFF2 /* libSluthware.a */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		2E9791381BE3B28D005DAFF2 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 2E9791161BE3B28D005DAFF2 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 2E97911D1BE3B28D005DAFF2;
-			remoteInfo = CombinationLockTest;
-		};
-		2E9791431BE3B28D005DAFF2 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 2E9791161BE3B28D005DAFF2 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 2E97911D1BE3B28D005DAFF2;
-			remoteInfo = CombinationLockTest;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		2E97911E1BE3B28D005DAFF2 /* CombinationLockTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CombinationLockTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -48,17 +31,11 @@
 		2E97912D1BE3B28D005DAFF2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2E9791301BE3B28D005DAFF2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2E9791321BE3B28D005DAFF2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		2E9791371BE3B28D005DAFF2 /* CombinationLockTestTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CombinationLockTestTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		2E97913B1BE3B28D005DAFF2 /* CombinationLockTestTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CombinationLockTestTests.m; sourceTree = "<group>"; };
-		2E97913D1BE3B28D005DAFF2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		2E9791421BE3B28D005DAFF2 /* CombinationLockTestUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CombinationLockTestUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		2E9791461BE3B28D005DAFF2 /* CombinationLockTestUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CombinationLockTestUITests.m; sourceTree = "<group>"; };
-		2E9791481BE3B28D005DAFF2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2E97915B1BE3B356005DAFF2 /* libSluthware.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libSluthware.a; path = /opt/theos/lib/libSluthware.a; sourceTree = "<absolute>"; };
 		2E97915E1BE3B40C005DAFF2 /* SWCombinationItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SWCombinationItem.h; path = ../../public/SWCombinationItem.h; sourceTree = "<group>"; };
 		2E97915F1BE3B40C005DAFF2 /* SWCombinationWheel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SWCombinationWheel.h; path = ../../public/SWCombinationWheel.h; sourceTree = "<group>"; };
 		2E9791601BE3B415005DAFF2 /* SWCombinationItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SWCombinationItem.m; path = ../../SWCombinationItem.m; sourceTree = "<group>"; };
-		2E9791611BE3B416005DAFF2 /* SWCombinationWheel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SWCombinationWheel.m; path = ../../SWCombinationWheel.m; sourceTree = "<group>"; };
+		2E9791611BE3B416005DAFF2 /* SWCombinationWheel.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = SWCombinationWheel.mm; path = ../../SWCombinationWheel.mm; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,21 +43,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2E97915C1BE3B356005DAFF2 /* libSluthware.a in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		2E9791341BE3B28D005DAFF2 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		2E97913F1BE3B28D005DAFF2 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
+				2EAFC6541BED865C001FAE94 /* libSluthware.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -91,8 +54,6 @@
 			isa = PBXGroup;
 			children = (
 				2E9791201BE3B28D005DAFF2 /* CombinationLockTest */,
-				2E97913A1BE3B28D005DAFF2 /* CombinationLockTestTests */,
-				2E9791451BE3B28D005DAFF2 /* CombinationLockTestUITests */,
 				2E97915D1BE3B366005DAFF2 /* Frameworks */,
 				2E97911F1BE3B28D005DAFF2 /* Products */,
 			);
@@ -102,8 +63,6 @@
 			isa = PBXGroup;
 			children = (
 				2E97911E1BE3B28D005DAFF2 /* CombinationLockTest.app */,
-				2E9791371BE3B28D005DAFF2 /* CombinationLockTestTests.xctest */,
-				2E9791421BE3B28D005DAFF2 /* CombinationLockTestUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -133,31 +92,13 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		2E97913A1BE3B28D005DAFF2 /* CombinationLockTestTests */ = {
-			isa = PBXGroup;
-			children = (
-				2E97913B1BE3B28D005DAFF2 /* CombinationLockTestTests.m */,
-				2E97913D1BE3B28D005DAFF2 /* Info.plist */,
-			);
-			path = CombinationLockTestTests;
-			sourceTree = "<group>";
-		};
-		2E9791451BE3B28D005DAFF2 /* CombinationLockTestUITests */ = {
-			isa = PBXGroup;
-			children = (
-				2E9791461BE3B28D005DAFF2 /* CombinationLockTestUITests.m */,
-				2E9791481BE3B28D005DAFF2 /* Info.plist */,
-			);
-			path = CombinationLockTestUITests;
-			sourceTree = "<group>";
-		};
 		2E9791541BE3B2BA005DAFF2 /* src */ = {
 			isa = PBXGroup;
 			children = (
 				2E97915E1BE3B40C005DAFF2 /* SWCombinationItem.h */,
 				2E97915F1BE3B40C005DAFF2 /* SWCombinationWheel.h */,
 				2E9791601BE3B415005DAFF2 /* SWCombinationItem.m */,
-				2E9791611BE3B416005DAFF2 /* SWCombinationWheel.m */,
+				2E9791611BE3B416005DAFF2 /* SWCombinationWheel.mm */,
 			);
 			name = src;
 			sourceTree = "<group>";
@@ -172,6 +113,18 @@
 		};
 /* End PBXGroup section */
 
+/* Begin PBXHeadersBuildPhase section */
+		2EAFC6511BED85FF001FAE94 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2EAFC6521BED8606001FAE94 /* SWCombinationItem.h in Headers */,
+				2EAFC6531BED8608001FAE94 /* SWCombinationWheel.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
 /* Begin PBXNativeTarget section */
 		2E97911D1BE3B28D005DAFF2 /* CombinationLockTest */ = {
 			isa = PBXNativeTarget;
@@ -180,6 +133,7 @@
 				2E97911A1BE3B28D005DAFF2 /* Sources */,
 				2E97911B1BE3B28D005DAFF2 /* Frameworks */,
 				2E97911C1BE3B28D005DAFF2 /* Resources */,
+				2EAFC6511BED85FF001FAE94 /* Headers */,
 			);
 			buildRules = (
 			);
@@ -189,42 +143,6 @@
 			productName = CombinationLockTest;
 			productReference = 2E97911E1BE3B28D005DAFF2 /* CombinationLockTest.app */;
 			productType = "com.apple.product-type.application";
-		};
-		2E9791361BE3B28D005DAFF2 /* CombinationLockTestTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 2E97914E1BE3B28D005DAFF2 /* Build configuration list for PBXNativeTarget "CombinationLockTestTests" */;
-			buildPhases = (
-				2E9791331BE3B28D005DAFF2 /* Sources */,
-				2E9791341BE3B28D005DAFF2 /* Frameworks */,
-				2E9791351BE3B28D005DAFF2 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				2E9791391BE3B28D005DAFF2 /* PBXTargetDependency */,
-			);
-			name = CombinationLockTestTests;
-			productName = CombinationLockTestTests;
-			productReference = 2E9791371BE3B28D005DAFF2 /* CombinationLockTestTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		2E9791411BE3B28D005DAFF2 /* CombinationLockTestUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 2E9791511BE3B28D005DAFF2 /* Build configuration list for PBXNativeTarget "CombinationLockTestUITests" */;
-			buildPhases = (
-				2E97913E1BE3B28D005DAFF2 /* Sources */,
-				2E97913F1BE3B28D005DAFF2 /* Frameworks */,
-				2E9791401BE3B28D005DAFF2 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				2E9791441BE3B28D005DAFF2 /* PBXTargetDependency */,
-			);
-			name = CombinationLockTestUITests;
-			productName = CombinationLockTestUITests;
-			productReference = 2E9791421BE3B28D005DAFF2 /* CombinationLockTestUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
 
@@ -238,14 +156,6 @@
 					2E97911D1BE3B28D005DAFF2 = {
 						CreatedOnToolsVersion = 7.1;
 						DevelopmentTeam = KZ3284WPA2;
-					};
-					2E9791361BE3B28D005DAFF2 = {
-						CreatedOnToolsVersion = 7.1;
-						TestTargetID = 2E97911D1BE3B28D005DAFF2;
-					};
-					2E9791411BE3B28D005DAFF2 = {
-						CreatedOnToolsVersion = 7.1;
-						TestTargetID = 2E97911D1BE3B28D005DAFF2;
 					};
 				};
 			};
@@ -263,8 +173,6 @@
 			projectRoot = "";
 			targets = (
 				2E97911D1BE3B28D005DAFF2 /* CombinationLockTest */,
-				2E9791361BE3B28D005DAFF2 /* CombinationLockTestTests */,
-				2E9791411BE3B28D005DAFF2 /* CombinationLockTestUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -280,20 +188,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		2E9791351BE3B28D005DAFF2 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		2E9791401BE3B28D005DAFF2 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -304,41 +198,12 @@
 				2E9791291BE3B28D005DAFF2 /* ViewController.m in Sources */,
 				2E9791261BE3B28D005DAFF2 /* AppDelegate.m in Sources */,
 				2E9791621BE3B416005DAFF2 /* SWCombinationItem.m in Sources */,
-				2E9791631BE3B416005DAFF2 /* SWCombinationWheel.m in Sources */,
+				2E9791631BE3B416005DAFF2 /* SWCombinationWheel.mm in Sources */,
 				2E9791231BE3B28D005DAFF2 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		2E9791331BE3B28D005DAFF2 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				2E97913C1BE3B28D005DAFF2 /* CombinationLockTestTests.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		2E97913E1BE3B28D005DAFF2 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				2E9791471BE3B28D005DAFF2 /* CombinationLockTestUITests.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		2E9791391BE3B28D005DAFF2 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 2E97911D1BE3B28D005DAFF2 /* CombinationLockTest */;
-			targetProxy = 2E9791381BE3B28D005DAFF2 /* PBXContainerItemProxy */;
-		};
-		2E9791441BE3B28D005DAFF2 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 2E97911D1BE3B28D005DAFF2 /* CombinationLockTest */;
-			targetProxy = 2E9791431BE3B28D005DAFF2 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		2E97912A1BE3B28D005DAFF2 /* Main.storyboard */ = {
@@ -484,54 +349,6 @@
 			};
 			name = Release;
 		};
-		2E97914F1BE3B28D005DAFF2 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				INFOPLIST_FILE = CombinationLockTestTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.patsluth.CombinationLockTestTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CombinationLockTest.app/CombinationLockTest";
-			};
-			name = Debug;
-		};
-		2E9791501BE3B28D005DAFF2 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				INFOPLIST_FILE = CombinationLockTestTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.patsluth.CombinationLockTestTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CombinationLockTest.app/CombinationLockTest";
-			};
-			name = Release;
-		};
-		2E9791521BE3B28D005DAFF2 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				INFOPLIST_FILE = CombinationLockTestUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.patsluth.CombinationLockTestUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_TARGET_NAME = CombinationLockTest;
-				USES_XCTRUNNER = YES;
-			};
-			name = Debug;
-		};
-		2E9791531BE3B28D005DAFF2 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				INFOPLIST_FILE = CombinationLockTestUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.patsluth.CombinationLockTestUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_TARGET_NAME = CombinationLockTest;
-				USES_XCTRUNNER = YES;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -549,24 +366,6 @@
 			buildConfigurations = (
 				2E97914C1BE3B28D005DAFF2 /* Debug */,
 				2E97914D1BE3B28D005DAFF2 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		2E97914E1BE3B28D005DAFF2 /* Build configuration list for PBXNativeTarget "CombinationLockTestTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				2E97914F1BE3B28D005DAFF2 /* Debug */,
-				2E9791501BE3B28D005DAFF2 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		2E9791511BE3B28D005DAFF2 /* Build configuration list for PBXNativeTarget "CombinationLockTestUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				2E9791521BE3B28D005DAFF2 /* Debug */,
-				2E9791531BE3B28D005DAFF2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -117,11 +117,6 @@
 @property (readonly, strong, nonatomic) UIView *backgroundView;
 
 /**
- *  This view will be masked and animated with the wheel view. It will be 'cutout' to exactly fit the wheel view
- */
-@property (weak, nonatomic) UIView *wheelCutoutView;
-
-/**
  *  Array of currently selected combination items. Reset every release of wheel
  */
 @property (strong, nonatomic) NSMutableArray *wheelCombinationSelection;

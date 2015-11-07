@@ -3,7 +3,7 @@
 
 
 FINALPACKAGE = 1
-PACKAGE_VERSION=1.0-3
+PACKAGE_VERSION=1.0-5
 
 
 
@@ -18,9 +18,9 @@ TARGET = iphone:clang:latest:7.0
 
 TWEAK_NAME = CombinationLock
 CombinationLock_CFLAGS = -fobjc-arc
-CombinationLock_FILES = SWCombinationLock.xm SWCombinationWheel.m SWCombinationItem.m
+CombinationLock_FILES = SWCombinationLock.xm SWCombinationWheel.mm SWCombinationItem.m
 CombinationLock_FRAMEWORKS = Foundation UIKit CoreGraphics QuartzCore
-CombinationLock_LIBRARIES = substrate sw packageinfo
+CombinationLock_LIBRARIES = substrate Sluthware sw packageinfo
 
 ADDITIONAL_CFLAGS = -Ipublic
 

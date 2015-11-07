@@ -9,9 +9,7 @@
 #import "SWCombinationWheel.h"
 #import "SWCombinationItem.h"
 
-#import "libsw/libsluthware/SWMLine.h"
-#import "libsw/libsluthware/SWMCircle.h"
-#import "libsw/libsluthware/SWMQuadratic.h"
+#import "libsw/libSluthware/SWMMath.h"
 
 
 
@@ -47,8 +45,6 @@
 
 @property (strong, nonatomic) UIBezierPath *wheelMaskCachedIdentity;
 @property (strong, nonatomic) UIBezierPath *wheelMaskCachedScaled;
-@property (strong, nonatomic) UIBezierPath *wheelCutoutMaskCachedIdentity;
-@property (strong, nonatomic) UIBezierPath *wheelCutoutMaskCachedScaled;
 
 @end
 
@@ -120,10 +116,6 @@
     [self.wheelCombinationSelection removeAllObjects];
     
     self.layer.mask = [CAShapeLayer layer];
-    
-    if (self.wheelCutoutView){
-        self.wheelCutoutView.layer.mask = [CAShapeLayer layer];
-    }
 }
 
 - (void)reloadData
@@ -149,9 +141,6 @@
         for (NSUInteger i = 0; i < numberOfItems; i++){
             
             SWCombinationItem *item = [self.dataSource swCombinationWheel:self combinationItemForIndex:i];
-            
-//            UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onTap:)];
-//            [item addGestureRecognizer:tap];
             
             tempItems[i] = item;
             [self.wheel addSubview:item];
@@ -468,14 +457,14 @@
 
 - (void)growNeedleView:(BOOL)animated
 {
-    NSArray *masks = [self maskPathsForAngle:_needleAngle andScale:CGPointMake(1.4, 1.25)];
-    [self setMaskToPath:masks animated:animated animationKey:@"growNeedle"];
+    CGPathRef maskPath = [self maskPathsForAngle:_needleAngle andScale:CGPointMake(1.4, 1.25)];
+    [self setMaskToPath:maskPath animated:animated animationKey:@"growNeedle"];
 }
 
 - (void)shrinkNeedleView:(BOOL)animated
 {
-    NSArray *masks = [self maskPathsForAngle:_needleAngle andScale:CGPointMake(1.0, 1.0)];
-    [self setMaskToPath:masks animated:animated animationKey:@"shrinkNeedle"];
+    CGPathRef maskPath = [self maskPathsForAngle:_needleAngle andScale:CGPointMake(1.0, 1.0)];
+    [self setMaskToPath:maskPath animated:animated animationKey:@"shrinkNeedle"];
 }
 
 /**
@@ -486,25 +475,18 @@
  *  @param animated     BOOL
  *  @param animationKey NSString
  */
-- (void)setMaskToPath:(NSArray *)targetPaths
+- (void)setMaskToPath:(CGPathRef)maskPath
              animated:(BOOL)animated
          animationKey:(NSString *)animationKey
 {
-    if (!targetPaths || targetPaths.count < 1){
+    if (!maskPath){
         return;
     }
     
     if (!animated){
         
         [self.layer.mask removeAllAnimations];
-        if (self.wheelCutoutView){
-            [self.wheelCutoutView.layer.mask removeAllAnimations];
-        }
-        
-        [self.layer.mask setValue:[targetPaths objectAtIndex:0] forKey:@"path"];
-        if (self.wheelCutoutView){
-            [self.wheelCutoutView.layer.mask setValue:[targetPaths objectAtIndex:1] forKey:@"path"];
-        }
+        [self.layer.mask setValue:(__bridge id)maskPath forKey:@"path"];
         
         return;
     }
@@ -519,23 +501,13 @@
     maskAnimation.duration = 0.2;
     
     maskAnimation.fromValue = [self.layer.mask.presentationLayer valueForKey:@"path"];
-    maskAnimation.toValue = [targetPaths objectAtIndex:0];
+    maskAnimation.toValue = (__bridge id)maskPath;
     maskAnimation.fillMode = kCAFillModeForwards;
     maskAnimation.removedOnCompletion = NO;
     
     [self.layer.mask removeAllAnimations];
     
     [self.layer.mask addAnimation:maskAnimation forKey:animationKey];
-    if (self.wheelCutoutView){
-        
-        CABasicAnimation *maskAnimationInverted = [maskAnimation copy];
-        maskAnimationInverted.fromValue = [self.wheelCutoutView.layer.mask.presentationLayer valueForKey:@"path"];
-        maskAnimationInverted.toValue = [targetPaths objectAtIndex:1];
-        
-        [self.wheelCutoutView.layer.mask removeAllAnimations];
-        
-        [self.wheelCutoutView.layer.mask addAnimation:maskAnimationInverted forKey:animationKey];
-    }
 }
 
 /**
@@ -546,7 +518,7 @@
  *
  *  @return NSArray
  */
-- (NSArray *)maskPathsForAngle:(CGFloat)angle andScale:(CGPoint)scale
+- (CGPathRef)maskPathsForAngle:(CGFloat)angle andScale:(CGPoint)scale
 {
     if (!self.dataSource){
         return nil;
@@ -555,12 +527,12 @@
     BOOL isIdentityScale = (scale.x == 1.0 && scale.y == 1.0);
     
     if (isIdentityScale){
-        if (self.wheelMaskCachedIdentity && self.wheelCutoutMaskCachedIdentity){
-            return @[(id)self.wheelMaskCachedIdentity.CGPath, (id)self.wheelCutoutMaskCachedIdentity.CGPath];
+        if (self.wheelMaskCachedIdentity){
+            return self.wheelMaskCachedIdentity.CGPath;
         }
     } else {
-        if (self.wheelMaskCachedScaled && self.wheelCutoutMaskCachedScaled){
-            return @[(id)self.wheelMaskCachedScaled.CGPath, (id)self.wheelCutoutMaskCachedScaled.CGPath];
+        if (self.wheelMaskCachedScaled){
+            return self.wheelMaskCachedScaled.CGPath;
         }
     }
     
@@ -578,14 +550,14 @@
     CGPoint needlePoint_B = CGPointMake((center.x + outerRadius) - needleSize.height, center.y);
     
     //Calculate roots (so we can find the point where our line intersects the circle)
-    SWMLine *needleEquation = [SWMLine lineForPoint:needlePoint_A and:needlePoint_B];
-    SWMCircle *wheelEquation = [SWMCircle circleWithCenter:center andRadius:outerRadius];
-    SWMQuadratic *needleAndWheelQuadratic = [SWMCircle quadraticWithCircle:wheelEquation andLine:needleEquation];
-    CGPoint nwRoots = [needleAndWheelQuadratic solveRoots];
+    SWMLine needleEquation = SWMLineMakeWithPoints(needlePoint_A, needlePoint_B);
+    SWMCircle wheelEquation = SWMCircleMake(center, outerRadius);
+    SWMQuadratic needleAndWheelQuadratic = SWMCircleIntersectionWithSWMLine(wheelEquation, needleEquation);
+    CGPoint nwRoots = SWMQuadraticSolveRoots(needleAndWheelQuadratic);
     
     
     //the y values where the needle intersects the circle at newRoots.x
-    CGPoint wheelNeedleIntersectionPoints = [wheelEquation solveInTermsOfX:nwRoots.x];
+    CGPoint wheelNeedleIntersectionPoints = SWMCircleSolveWithY(wheelEquation, nwRoots.x);
     //x and y are inverted because origin is at upper left corner in ios
     CGPoint needlePoint_D = CGPointMake(nwRoots.x, wheelNeedleIntersectionPoints.y);
     CGPoint needlePoint_F = CGPointMake(nwRoots.x, wheelNeedleIntersectionPoints.x);
@@ -639,30 +611,14 @@
     [wheelCutoutPath applyTransform:wheelPathRotation];
     
     
-    //move the wheel cutout path down to match our origin
-    CGAffineTransform wheelCutoutTranslation = CGAffineTransformIdentity;
-    CGPoint convertedOrigin = [self.superview convertPoint:self.frame.origin toView:self.wheelCutoutView];
-    wheelCutoutTranslation = CGAffineTransformTranslate(wheelCutoutTranslation, convertedOrigin.x, convertedOrigin.y);
-    [wheelCutoutPath applyTransform:wheelCutoutTranslation];
-    
-    
-    
-    
-    
-    //append the bounds path after, because we only want to rotate the wheel
-    [wheelCutoutPath appendPath:[UIBezierPath bezierPathWithRect:self.wheelCutoutView.bounds]];
-    
-    
     
     if (isIdentityScale){
         self.wheelMaskCachedIdentity = wheelCutout;
-        self.wheelCutoutMaskCachedIdentity = wheelCutoutPath;
     } else {
         self.wheelMaskCachedScaled = wheelCutout;
-        self.wheelCutoutMaskCachedScaled = wheelCutoutPath;
     }
     
-    return @[(id)wheelCutout.CGPath, (id)wheelCutoutPath.CGPath];
+    return wheelCutout.CGPath;
 }
 
 #pragma mark -
@@ -791,8 +747,6 @@
     
     self.wheelMaskCachedIdentity = nil;
     self.wheelMaskCachedScaled = nil;
-    self.wheelCutoutMaskCachedIdentity = nil;
-    self.wheelCutoutMaskCachedScaled = nil;
     
     [super layoutIfNeeded];
 }
