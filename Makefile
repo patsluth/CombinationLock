@@ -3,14 +3,15 @@
 
 
 FINALPACKAGE = 1
-PACKAGE_VERSION=1.0-6
+DEBG = 0
+PACKAGE_VERSION=1.0-7
 
 
 
 
 
 ARCHS = armv7 armv7s arm64
-TARGET = iphone:clang:latest
+TARGET = iphone:clang:latest:7.0
 
 
 
