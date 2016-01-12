@@ -10,7 +10,11 @@ PACKAGE_VERSION=1.0-7
 
 
 
-ARCHS = armv7 armv7s arm64
+ifeq ($(DEBUG), 1)
+    ARCHS = arm64
+else
+    ARCHS = armv7 armv7s arm64
+endif
 TARGET = iphone:clang:latest:7.0
 
 
@@ -19,7 +23,7 @@ TARGET = iphone:clang:latest:7.0
 
 TWEAK_NAME = CombinationLock
 CombinationLock_CFLAGS = -fobjc-arc
-CombinationLock_FILES = SWCombinationLock.xm SWCombinationWheel.mm SWCombinationItem.m
+CombinationLock_FILES = SWCombinationItem.m SWCombinationLock.xm SWCombinationWheel.mm
 CombinationLock_FRAMEWORKS = Foundation UIKit CoreGraphics QuartzCore
 CombinationLock_LIBRARIES = substrate Sluthware sw packageinfo
 
